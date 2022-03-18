@@ -1,0 +1,17 @@
+<form class="example-form">
+  <mat-form-field class="example-full-width" appearance="fill" >
+    <mat-label>Body</mat-label>
+    <input matInput [value]="data?.body ? data.body : ''" >
+  </mat-form-field>
+</form>
+
+<form class="example-form">
+<mat-form-field class="example-full-width" appearance="fill">
+  <mat-label>Title</mat-label>
+  <input matInput [value]="data?.title ? data.title: ''">
+</mat-form-field>
+
+  <button [disabled]="!data" mat-raised-button color="primary" type="submit" (click)="patch()">Сохранить</button>
+  <button style="margin-left: 10px" mat-raised-button color="primary" type="submit" routerLink="/news">Назад</button>
+
+</form>

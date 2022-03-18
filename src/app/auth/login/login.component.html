@@ -1,0 +1,29 @@
+<div style="position: absolute;left: 50%;top:50%;transform: translate(-50%,-50%); width: 30%">
+  <form class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput [formControl]="loginFormControl" placeholder="Pat@example.com" [(ngModel)]="login">
+      <mat-error *ngIf="loginFormControl.hasError('email') && !loginFormControl.hasError('required')">
+        Пожалуйста, введите коректный email адрес!
+      </mat-error>
+      <p style="color: red" *ngIf="login !== 'Admin@mail.ru'">Не верный логин!</p>
+      <mat-error *ngIf="loginFormControl.hasError('required')">
+        Поле Email должно быть <strong>заполненно!</strong>
+      </mat-error>
+    </mat-form-field>
+  </form>
+
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Enter your password</mat-label>
+    <input   matInput   [type]="hide ? 'password' : 'text'"  [(ngModel)]="password">
+      <p style="color: red" *ngIf="password !== '12345'">Не верный пароль!</p>
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <button  mat-stroked-button color="primary" type="Submit" (click)="tryLoginPassword()">Авторизоваться</button>
+
+</div>
+
